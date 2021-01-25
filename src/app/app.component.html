@@ -1,0 +1,33 @@
+<div class="container container-fluid pt-5">
+  <button class="btn btn-primary" (click)="onFetchUsers()">
+    load
+  </button>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">first_name</th>
+        <th scope="col">last_name</th>
+        <th scope="col">email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loadedUser of loadedUsers | keyvalue">
+        <td>
+          {{loadedUser.value.first_name}}
+        </td>
+        <td>
+          {{loadedUser.value.last_name}}
+        </td>
+        <td>
+          {{loadedUser.value.email}}
+        </td>
+      </tr>
+    </tbody>
+
+    <div class="alert alert-danger" *ngIf="error">
+      <h3>An error Occurred</h3>
+      <p>{{ error }}</p>
+    </div>
+  </table>
+</div>
